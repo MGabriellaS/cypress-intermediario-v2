@@ -1,16 +1,11 @@
-describe('login', () => {
- 
-  beforeEach(() => {
-      cy.visit('/users/sign_in')
-  })
+describe('Login', () => {
+  it('Verify that is possible login successfully', () => {
+    const user = Cypress.env('user_name')
+    const password = Cypress.env('user_password')
+    const options = { cacheSession: false }
 
-  it('Verify that is possible login successfully',() => {
-    cy.login()
+    cy.login(user, password, options)
 
     cy.get('.qa-user-avatar').should('be.visible')
   })
-  
-  it('', () => {
-      
-  });
 })
